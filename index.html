@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los 7 Votos del Éxito — Actividades</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b1c0c;
+    --ink-soft:#5a4123;
+    --ink-faint:rgba(70,45,18,.55);
+    --paper:#efdeb5;
+    --paper-deep:#d9bd85;
+    --wax:#8e1d1d;
+    --wax-dark:#561010;
+    --gold:#e9cf8f;
+    --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32  0 0 0 0 .21  0 0 0 0 .08  0 0 0 .20 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  *{box-sizing:border-box}
+  html{margin:0;min-height:100%;background:#20130a}
+  body{margin:0;
+    min-height:100vh;
+    font-family:"EB Garamond",Georgia,serif;
+    color:var(--ink);
+    background:
+      var(--noise),
+      radial-gradient(ellipse at 50% 0%, #5b3a1e 0%, #3a2412 45%, #20130a 100%);
+    background-attachment:fixed;
+    padding:28px 16px 64px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+
+  /* ---------- Encabezado ---------- */
+  header.cab{text-align:center;color:var(--gold);margin-bottom:22px}
+  header.cab .sup{font-family:"Cinzel",serif;letter-spacing:.32em;font-size:.78rem;opacity:.8;text-transform:uppercase}
+  header.cab h1{font-family:"Cinzel",serif;font-weight:700;font-size:clamp(1.9rem,4.6vw,3.2rem);margin:.25em 0 .1em;letter-spacing:.06em;
+    text-shadow:0 2px 0 #1a0e05,0 0 24px rgba(233,207,143,.25)}
+  header.cab .sub{font-style:italic;font-size:1.08rem;opacity:.85}
+  header.cab .alumno{margin-top:10px;font-family:"Cinzel",serif;font-size:.8rem;letter-spacing:.14em;opacity:.75}
+
+  /* ---------- Sellos de navegación ---------- */
+  nav.sellos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:18px 0 30px}
+  nav.sellos a{
+    width:56px;height:56px;border-radius:50%;display:grid;place-items:center;text-decoration:none;
+    font-family:"Cinzel",serif;font-weight:700;font-size:1rem;color:#f3d9a0;
+    background:radial-gradient(circle at 35% 30%,#c23a32 0%,var(--wax) 45%,var(--wax-dark) 100%);
+    box-shadow:0 3px 6px rgba(0,0,0,.5), inset 0 -3px 6px rgba(0,0,0,.35), inset 0 2px 3px rgba(255,170,150,.25);
+    position:relative;transition:transform .15s ease;
+  }
+  nav.sellos a::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px dashed rgba(243,217,160,.35)}
+  nav.sellos a:hover{transform:translateY(-2px) rotate(-4deg)}
+  nav.sellos a.activo{transform:scale(1.14);box-shadow:0 0 0 3px rgba(233,207,143,.55),0 4px 10px rgba(0,0,0,.6),inset 0 -3px 6px rgba(0,0,0,.35)}
+  nav.sellos a.inicio{width:auto;padding:0 18px;border-radius:28px;font-size:.78rem;letter-spacing:.14em}
+  nav.sellos a.inicio::after{border-radius:24px}
+
+  /* ---------- Pergamino ---------- */
+  .scroll{position:relative;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55))}
+  .roll{
+    position:relative;height:38px;margin:0 -10px;border-radius:19px;z-index:2;
+    background:
+      var(--noise),
+      linear-gradient(180deg,#8a6738 0%,#c9a66b 18%,#f2dfb1 40%,#e2c68f 62%,#b48a51 82%,#6f5029 100%);
+  }
+  .roll::before,.roll::after{
+    content:"";position:absolute;top:2px;bottom:2px;width:26px;border-radius:50%;
+    background:radial-gradient(ellipse at 50% 50%,#5b3f1f 0%,#8d6a3b 35%,#d9bc86 62%,#a07945 100%);
+    box-shadow:inset 0 0 4px rgba(0,0,0,.45);
+  }
+  .roll::before{left:-4px}
+  .roll::after{right:-4px}
+  .paper{
+    position:relative;margin:-10px 6px;padding:46px clamp(20px,4vw,48px) 44px;z-index:1;
+    background:
+      var(--noise),
+      radial-gradient(ellipse at 50% 40%,#f6e8c6 0%,var(--paper) 55%,#dcc08a 88%,#c9a76c 100%);
+    box-shadow:inset 0 0 70px rgba(110,70,25,.45), inset 0 18px 22px -14px rgba(80,50,15,.55), inset 0 -18px 22px -14px rgba(80,50,15,.55);
+  }
+  .paper::before{ /* bordes irregulares */
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 0% 22%,rgba(90,55,20,.28) 0 7px,transparent 8px),
+      radial-gradient(circle at 100% 61%,rgba(90,55,20,.28) 0 6px,transparent 7px),
+      radial-gradient(circle at 0% 78%,rgba(90,55,20,.22) 0 5px,transparent 6px),
+      radial-gradient(circle at 100% 30%,rgba(90,55,20,.22) 0 5px,transparent 6px);
+  }
+
+  .semana{font-family:"Cinzel",serif;text-align:center;letter-spacing:.3em;font-size:.82rem;color:var(--ink-soft)}
+  h2.voto{font-family:"Cinzel",serif;font-weight:600;text-align:center;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.15em 0 .25em;letter-spacing:.04em}
+  .juramento{font-family:"Cinzel",serif;text-align:center;font-size:clamp(.95rem,1.7vw,1.12rem);line-height:1.5;color:var(--ink-soft);max-width:30em;margin:0 auto}
+  .orn{text-align:center;color:var(--ink-faint);font-size:1.3rem;margin:16px 0 10px;letter-spacing:.6em}
+  h3{font-family:"Cinzel",serif;font-weight:600;font-size:.92rem;letter-spacing:.18em;margin:20px 0 6px;color:var(--ink-soft);text-transform:uppercase}
+  p{font-size:1.12rem;line-height:1.6;margin:.3em 0 .7em;text-align:justify;hyphens:auto}
+  .capitular::first-letter{font-family:"Cinzel",serif;float:left;font-size:3.1em;line-height:.85;padding:6px 8px 0 0;color:var(--wax)}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 6px}
+  .ficha{border:1px solid rgba(90,60,25,.35);border-radius:6px;padding:10px 12px;background:rgba(255,248,226,.28)}
+  .ficha small{display:block;font-family:"Cinzel",serif;font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft)}
+  .ficha b{font-size:1.15rem;font-weight:600}
+  .pag{margin-top:18px;text-align:right;font-style:italic;color:var(--ink-faint);font-size:.95rem}
+
+  /* ---------- Placa del pilar ---------- */
+  .placa-marco{padding:10px;background:linear-gradient(135deg,#f2ece0,#d6cdbb);border-radius:3px;box-shadow:0 2px 5px rgba(60,40,15,.35)}
+  .placa{
+    position:relative;padding:20px 24px 18px;text-align:center;border-radius:2px;
+    background:linear-gradient(160deg,#d9d2c3 0%,#a9a191 38%,#cfc8b8 62%,#9c9483 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6), inset 0 -2px 3px rgba(0,0,0,.25);
+  }
+  .placa i.tornillo{position:absolute;width:9px;height:9px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#f4f0e8,#7f786a);box-shadow:0 1px 1px rgba(0,0,0,.4)}
+  .placa i.t1{top:7px;left:7px}.placa i.t2{top:7px;right:7px}.placa i.t3{bottom:7px;left:7px}.placa i.t4{bottom:7px;right:7px}
+  .placa .nombre{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(1.05rem,2.2vw,1.4rem);letter-spacing:.04em;color:#2a241a;
+    text-shadow:0 1px 0 rgba(255,255,255,.55)}
+  .placa .texto{font-size:1.06rem;line-height:1.5;margin-top:8px;color:#2a241a;text-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .placa .ref{font-family:"Cinzel",serif;font-size:.72rem;letter-spacing:.16em;margin-top:10px;color:#4b4335}
+
+  /* ---------- Compromisos ---------- */
+  .lineas{margin:26px 0 8px}
+  .linea{display:flex;align-items:flex-end;gap:12px;border-bottom:1px solid rgba(70,45,18,.55);padding:6px 0 3px;margin-bottom:6px}
+  .caja{
+    flex:none;width:22px;height:22px;margin-bottom:4px;padding:0;cursor:pointer;
+    border:1.5px solid #4a3418;border-radius:2px;background:rgba(255,250,236,.75);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,.2);display:grid;place-items:center;
+  }
+  .caja svg{width:18px;height:18px;opacity:0;transform:scale(.6);transition:all .15s ease}
+  .caja[aria-pressed="true"] svg{opacity:1;transform:scale(1)}
+  .caja:disabled{cursor:default}
+  textarea.comp{
+    flex:1;resize:none;border:0;outline:0;background:transparent;overflow:hidden;
+    font-family:"EB Garamond",serif;font-style:italic;font-size:1.1rem;line-height:1.35;color:var(--ink);
+    padding:2px 0;min-height:1.6em;
+  }
+  textarea.comp::placeholder{color:rgba(70,45,18,.35)}
+  textarea.comp:focus{background:rgba(255,250,236,.35)}
+  .linea.hecho textarea.comp{color:#3c4f22}
+
+  /* ---------- Plan anual ---------- */
+  .plan{margin:12px 0 4px;border:1.5px solid #4a3418;background:rgba(255,250,236,.55);border-radius:2px}
+  .plan .anio{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-bottom:1.5px solid #4a3418;
+    font-family:"Cinzel",serif;font-size:.74rem;letter-spacing:.16em;color:var(--ink-soft);background:rgba(142,29,29,.07)}
+  .plan .anio b{font-size:1.05rem;color:var(--wax);letter-spacing:.08em}
+  .meta{display:grid;grid-template-columns:78px 1fr 26px;align-items:center;gap:12px;padding:8px 12px;border-top:1px solid rgba(74,52,24,.35)}
+  .meta:first-of-type{border-top:0}
+  .trim{text-align:center;border-right:1px solid rgba(74,52,24,.35);padding-right:10px}
+  .trim b{display:block;font-family:"Cinzel",serif;font-size:1.05rem;color:var(--ink)}
+  .trim small{font-size:.8rem;font-style:italic;color:var(--ink-faint);white-space:nowrap}
+  textarea.obj{border:0;outline:0;resize:none;overflow:hidden;background:transparent;width:100%;
+    font-family:"EB Garamond",serif;font-size:1.06rem;line-height:1.35;color:var(--ink);padding:2px 0;min-height:1.6em}
+  textarea.obj::placeholder{color:rgba(70,45,18,.35)}
+  textarea.obj:focus{background:rgba(255,250,236,.4)}
+  .meta .caja{margin:0}
+  .meta.hecho textarea.obj{color:#3c4f22}
+  .meta.hecho .trim b{color:#3c4f22}
+
+  .estado{min-height:1.3em;text-align:center;font-style:italic;font-size:.95rem;color:var(--ink-faint);margin-top:12px}
+
+  /* ---------- Vistas ---------- */
+  .vista{display:none}
+  .vista.activa{display:block;animation:desenrollar .45s ease}
+  @keyframes desenrollar{from{opacity:0;transform:translateY(10px) scaleY(.97)}to{opacity:1;transform:none}}
+  .par{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+  .pasos{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+  .pasos a{font-family:"Cinzel",serif;letter-spacing:.12em;font-size:.8rem;color:var(--gold);text-decoration:none;border:1px solid rgba(233,207,143,.4);padding:9px 16px;border-radius:24px;background:rgba(0,0,0,.18)}
+  .pasos a:hover{background:rgba(233,207,143,.12)}
+  .pasos a.oculto{visibility:hidden}
+
+  /* ---------- Inicio ---------- */
+  .intro{max-width:860px;margin:0 auto}
+  .tabla-prog{width:100%;border-collapse:collapse;margin-top:10px;font-size:1.04rem}
+  .tabla-prog th{font-family:"Cinzel",serif;font-weight:600;font-size:.72rem;letter-spacing:.14em;text-align:left;color:var(--ink-soft);border-bottom:1.5px solid rgba(70,45,18,.6);padding:6px 6px}
+  .tabla-prog td{border-bottom:1px solid rgba(70,45,18,.25);padding:8px 6px;vertical-align:middle}
+  .tabla-prog td.num{font-family:"Cinzel",serif;font-weight:700;color:var(--wax);width:44px}
+  .tabla-prog a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink-faint)}
+  .barra{display:flex;align-items:center;gap:8px;min-width:120px}
+  .barra .tubo{flex:1;height:8px;border-radius:4px;background:rgba(90,60,25,.18);overflow:hidden}
+  .barra .tubo span{display:block;height:100%;background:linear-gradient(90deg,#6d4a1e,var(--wax));width:0;transition:width .4s ease}
+  .barra em{font-style:normal;font-size:.92rem;min-width:2.6em;text-align:right;color:var(--ink-soft)}
+  .totales{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:22px;text-align:center}
+  .totales div b{display:block;font-family:"Cinzel",serif;font-size:2rem;color:var(--wax)}
+  .totales div span{font-family:"Cinzel",serif;font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft)}
+  .nota{font-size:.95rem;font-style:italic;color:var(--ink-faint);text-align:center;margin-top:18px}
+
+  @media (max-width:900px){
+    .par{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:560px){
+    .duo{grid-template-columns:1fr}
+    .tabla-prog .col-lect{display:none}
+    nav.sellos a{width:46px;height:46px;font-size:.88rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="cab">
+    <div class="sup">Ética Profesional · 3er bloque</div>
+    <h1>Los 7 Votos del Éxito</h1>
+    <div class="sub">Siete votos, siete pilares, siete semanas de compromisos</div>
+    <div class="alumno">José Pablo Cano Cóbar · Carné 0901-23-1727</div>
+  </header>
+
+  <nav class="sellos" id="sellos" aria-label="Votos"></nav>
+
+  <main id="vistas"></main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var TRIM = [["T1","ene – mar"],["T2","abr – jun"],["T3","jul – sep"],["T4","oct – dic"]];
+  var ROMANOS = ["I","II","III","IV","V","VI","VII"];
+
+  var VOTOS = [
+    {
+      n:1, ordinal:"El primer voto", pags:"79–80",
+      juramento:"Juro ser honesto y resistir la tentación de mentir, engañar o robar.",
+      virtud:"Honestidad", resiste:"La mentira, el engaño y el robo",
+      esencia:"La oración parte de reconocer un mundo que negocia sus absolutos y pide elegir el buen nombre por encima de la riqueza. Ruega no cambiar la herencia que uno deja por una satisfacción inmediata, tener un corazón honesto y una mente capaz de juzgar con rectitud, y llegar a ser conocido como una persona de palabra. Termina pidiendo valor para que esa honestidad influya en jóvenes y adultos.",
+      profesion:"En la ingeniería de sistemas la honestidad se nota en lo cotidiano: reportar un error que uno mismo causó, citar el código o la idea que se tomó de otro, estimar tiempos reales y no maquillar el avance de una tarea. Un profesional confiable vale más que uno brillante en quien no se puede confiar.",
+      pilar:"El pilar de la honestidad",
+      pilarTexto:"Vale más lo poco ganado con rectitud que una gran fortuna conseguida con trampa. Dios pide justicia en cada trato y en cada negocio: es un principio que Él mismo estableció.",
+      ref:"Basado en Proverbios 16:8, 16:11 y 13:11"
+    },
+    {
+      n:2, ordinal:"El segundo voto", pags:"81–82",
+      juramento:"Juro ser honesto y resistir la codicia.",
+      virtud:"Generosidad", resiste:"La codicia",
+      esencia:"Este voto nace de notar que el mundo se olvidó de dar. Presenta la generosidad como una siembra: quien riega a otros termina regado. Pide aprender a soltar la semilla que se tiene en la mano —incluido el propio tiempo—, entender el principio de dar primero, tener ojos para ver las necesidades cercanas y oídos para el que no tiene quién lo defienda. Cierra pidiendo que no quede en la vida ninguna sombra de codicia.",
+      profesion:"En el trabajo técnico, ser generoso es compartir lo que uno sabe: documentar para el siguiente, explicar con paciencia, revisar el código de otros con buena intención y dar tiempo a quien empieza. El conocimiento que se guarda se estanca; el que se comparte multiplica al equipo.",
+      pilar:"El pilar de la generosidad",
+      pilarTexto:"No te creas sabio por tu propia cuenta: confía en el Señor y apártate del mal, y eso renovará tu vida. Hónralo con lo primero de todo lo que recibes, y tus graneros se llenarán hasta rebosar.",
+      ref:"Basado en Proverbios 3:7–10"
+    },
+    {
+      n:3, ordinal:"El tercer voto", pags:"83–84",
+      juramento:"Juro trabajar arduamente y resistir la pereza.",
+      virtud:"Trabajo duro y servicio", resiste:"La pereza",
+      esencia:"El voto une el trabajo con el servicio: el más grande es quien sirve, y hay alegría en hacer bien las cosas pequeñas. Agradece cada día como una oportunidad para entregar el propio don al mundo, pide que cada momento cuente y que uno dé siempre más de lo que se le pide, no para quedar bien con las personas sino por honrar un principio eterno. Reconoce que el trabajo y la capacidad de trabajar son, ambos, un regalo.",
+      profesion:"La diligencia en sistemas se ve en terminar lo que se empieza, probar antes de entregar y no conformarse con que «compile». El que da un paso más que el requisito mínimo es el que termina dirigiendo los proyectos.",
+      pilar:"El pilar del trabajo duro",
+      pilarTexto:"Lo que se gana mal no da una felicidad que dure; la vida honrada, sí. El trabajador diligente prospera y llega a estar ante reyes; el perezoso se empobrece pronto. Quien trabaja con empeño llegará a dirigir, y el prudente aprovecha la ocasión en lugar de dormirse y dejarla pasar.",
+      ref:"Basado en Proverbios 10:2, 10:4–5, 12:24 y 22:29"
+    },
+    {
+      n:4, ordinal:"El cuarto voto", pags:"85–86",
+      juramento:"Juro ser humilde y resistir el orgullo.",
+      virtud:"Humildad", resiste:"El orgullo",
+      esencia:"El voto advierte que el orgullo se mete sin avisar y pide ser ejemplo de humildad: hacer que las demás personas se sientan importantes y queridas. Recuerda que la humildad se entiende al compararse con la grandeza de Dios, creador de lo visible y lo invisible, y pide dejarse guiar por Él en cada trato personal y de negocios, como una piedra que se deja esculpir.",
+      profesion:"Un ingeniero humilde acepta la revisión de su código sin ponerse a la defensiva, pregunta cuando no sabe y reconoce el aporte de su equipo. La humildad no es pensar menos de uno mismo: es estar dispuesto a aprender de cualquiera.",
+      pilar:"El pilar de la humildad",
+      pilarTexto:"La humildad y la reverencia hacia el Señor traen sabiduría, honra y larga vida. Cuando alguien busca agradar a Dios, Él hace que hasta sus enemigos vivan en paz con él. Si es el Señor quien dirige nuestros pasos, no hace falta entender todo lo que pasa en el camino.",
+      ref:"Basado en Proverbios 22:4, 16:7 y 20:24"
+    },
+    {
+      n:5, ordinal:"El quinto voto", pags:"87–88",
+      juramento:"Juro planificar con anticipación y resistir la impulsividad.",
+      virtud:"Planificación efectiva", resiste:"La impulsividad",
+      esencia:"Empieza con una confesión: el oportunista tiende a ser impulsivo. Frente a eso, reconoce a Dios como el estratega supremo que planificó desde el principio y pide aprender a hacer lo mismo, en los negocios y en las necesidades de la familia. Pide ser alguien que escribe las cosas en lugar de fiarse de la memoria, que planifica su trabajo y luego trabaja su plan, y que lleva sus proyectos hasta el final.",
+      profesion:"En software, planificar es dividir el proyecto en tareas, estimar, definir fechas y usar las herramientas correctas antes de escribir la primera línea. Lo que no se escribe se olvida, y lo que no se planifica se entrega tarde.",
+      pilar:"El pilar de la planificación efectiva",
+      pilarTexto:"Toda empresa y toda persona se sostienen sobre planes sensatos; se fortalecen con sentido común y prosperan cuando se mantienen al día en todo.",
+      ref:"Basado en Proverbios 24:3–4"
+    },
+    {
+      n:6, ordinal:"El sexto voto", pags:"89–90",
+      juramento:"Juro ejercer sentido común y resistir la confusión.",
+      virtud:"Sentido común", resiste:"La confusión",
+      esencia:"El voto elige una forma superior de pensar cuando el entorno se nubla de concesiones y confusión. Pide una mente clara, ver con nitidez los límites entre lo correcto y lo incorrecto, sabiduría para actuar y reaccionar bien, y percepción para descubrir el motivo detrás de cada situación. Ruega juzgar todo a la luz de la eternidad y aprender a escuchar antes de hablar.",
+      profesion:"El sentido común del ingeniero está en entender el problema antes de proponer la solución: escuchar al usuario, analizar el requerimiento y decidir con datos, no por impulso o por moda.",
+      pilar:"El pilar del sentido común",
+      pilarTexto:"Quien sabe distinguir el bien del mal y tiene buen juicio es más dichoso que el que tiene enormes riquezas, porque su sabiduría vale más que las piedras preciosas.",
+      ref:"Basado en Proverbios 3:13–15"
+    },
+    {
+      n:7, ordinal:"El séptimo voto", pags:"91–92",
+      juramento:"Juro tener dominio propio y resistir los excesos.",
+      virtud:"Dominio propio", resiste:"Los excesos",
+      esencia:"Así como las zorras pequeñas arruinan la viña, las palabras, acciones y decisiones pequeñas pueden arruinar una vida recta; el exceso destruye personas, familias y naciones. Los seis votos anteriores son el cimiento y este es el que los protege. Pide controlar las palabras y las emociones, buscar pronto la reconciliación con el adversario, responder con suavidad y cuidar los propios sentimientos, para que los siete pilares guíen como una brújula.",
+      profesion:"Bajo presión —una entrega, un servidor caído, un cliente molesto— el dominio propio es lo que separa una respuesta profesional de un error que cuesta caro. Pensar antes de responder también es una competencia técnica.",
+      pilar:"El pilar del dominio propio",
+      pilarTexto:"Quien no se controla es como una ciudad sin murallas. No sigas el camino de los malvados: apártate y toma otra ruta. Y por encima de todo, cuida tu corazón, porque de él depende toda tu vida.",
+      ref:"Basado en Proverbios 25:28, 4:14–16 y 4:23"
+    }
+  ];
+
+  /* ---------- Estado ---------- */
+  function vacio(){ return {compromisos:["","","","","","",""], hechos:[false,false,false,false,false,false,false], plan:["","","",""], planHecho:[false,false,false,false]}; }
+  var estado = {}; var guardado = {};
+  VOTOS.forEach(function(v){ estado[v.n] = vacio(); guardado[v.n] = JSON.stringify(estado[v.n]); });
+
+  var db = null, soloLectura = false, conectado = false;
+  var DATOS = {"v1": {"compromisos": ["Entregar solo código y tareas propias, citando cualquier fuente o fragmento que use.", "Reportar en mi trabajo el estado real de mis tareas, aunque vaya atrasado.", "Reconocer de inmediato un error mío, sin culpar a otros.", "Decir siempre la verdad aunque las consecuencias puedan afectarme.", "Cumplir lo que prometo.", "En la cancha, jugar limpio: no simular faltas ni reclamar jugadas que sé que no fueron.", "Decir la verdad aunque me cueste, en lugar de una excusa cómoda."], "hechos": [false, false, false, false, false, false, false], "plan": ["Hacer todos mis proyectos del semestre sin copiar código ajeno, y citar las fuentes que use.", "Llevar un registro honesto de horas y avances en mi trabajo y entregarlo cada semana.", "Devolver a tiempo todo lo que me presten: libros, equipo o dinero.", "Terminar el año sin una sola entrega con contenido que no sea propio o sin citar."], "planHecho": [false, false, false, false]}, "v2": {"compromisos": ["Dedicar tiempo cada semana a resolver dudas de un compañero de carrera.", "Compartir mis apuntes y recursos de estudio con quien los necesite.", "Apartar una parte de lo que gano para ayudar a mis padres, antes de gastar en mí.", "Documentar mi código para que el siguiente lo entienda sin depender de mí.", "Enseñar a los porteros más jóvenes del equipo lo que he aprendido.", "Estar atento a una necesidad concreta a mi alrededor y actuar en ella.", "Dar mi tiempo sin esperar nada a cambio, aunque la semana esté cargada."], "hechos": [false, false, false, false, false, false, false], "plan": ["Ayudar a mis padres con los compromisos que tengan para reducir sus cargas.", "Publicar en GitHub un proyecto con documentación para que otros lo usen y aprendan.", "Participar en una actividad de voluntariado o en una causa social de la universidad.", "Apartar cada mes una parte de mis ingresos para ayudar a alguien que lo necesite."], "planHecho": [false, false, false, false]}, "v3": {"compromisos": ["Empezar las tareas el día que las asignan, no la noche antes de la entrega.", "Probar mi código antes de subirlo, no solo verificar que compile.", "Cumplir mi horario de trabajo con puntualidad y enfoque completo.", "Llegar a tiempo a los entrenamientos y dar el máximo en cada sesión.", "Hacer un poco más de lo que me piden en cada entrega.", "Hacer las tareas pequeñas (orden, documentación, limpieza) con la misma calidad que las grandes.", "Servir con buena actitud cuando me pidan ayuda, sin quejarme."], "hechos": [false, false, false, false, false, false, false], "plan": ["Aprobar todos los cursos del primer semestre sin entregas tardías.", "Completar los cursos adicionales que tengo pendientes y que complementan a mi carrera.", "No faltar a ningún entrenamiento ni rutina diaria de gimnasio.", "Cerrar el año con un portafolio de proyectos terminados y probados."], "planHecho": [false, false, false, false]}, "v4": {"compromisos": ["Recibir las correcciones de mis catedráticos sin ponerme a la defensiva.", "Pedir ayuda a tiempo cuando no entienda algo, en vez de aparentar que sé.", "Reconocer públicamente el aporte de mis compañeros en los proyectos de equipo.", "Escuchar a mis entrenadores y aceptar cuando corrigen mi técnica.", "Tratar a todos con el mismo respeto, sin importar su cargo o nivel.", "Celebrar los logros de otros sin compararme.", "Admitir que me equivoqué sin justificarme."], "hechos": [false, false, false, false, false, false, false], "plan": ["Pedir retroalimentación a un catedrático o jefe sobre mi trabajo cada mes.", "Pedir a mis padres retroalimentación de que puedo cambiar en mi vida personal para trabajar en ello.", "Pedir a mi entrenador una evaluación de mi rendimiento como portero y trabajar en ella.", "Reconocer por escrito el aporte de cada compañero al cerrar cada proyecto grupal."], "planHecho": [false, false, false, false]}, "v5": {"compromisos": ["Planificar cada domingo mi semana, equilibrando estudio, trabajo y entrenamientos.", "Anotar fechas de entrega y parciales en mi calendario apenas las conozca.", "Dividir cada proyecto final en tareas con fecha antes de empezar a programar.", "Pensarlo antes de gastar en algo que no estaba en mi presupuesto.", "Escribir mis pendientes en lugar de confiar en mi memoria.", "Terminar un proyecto antes de empezar otro nuevo.", "Preparar cada partido (descanso, comida, rutina) desde el día anterior."], "hechos": [false, false, false, false, false, false, false], "plan": ["Armar un calendario anual con parciales, entregas, torneos y horarios de trabajo.", "Definir un presupuesto mensual y llevar el control de mis gastos.", "Planificar el tema y el cronograma de mi trabajo de graduación o práctica profesional.", "Diseñar mi plan para después de graduarme: carrera profesional y oportunidad en el fútbol."], "planHecho": [false, false, false, false]}, "v6": {"compromisos": ["Escuchar completo antes de responder, en clase, en el trabajo y en el equipo.", "Entender bien el requerimiento antes de escribir una línea de código.", "Pensar en las consecuencias antes de tomar una decisión importante.", "Buscar consejo de alguien con experiencia cuando tenga dudas.", "Leer la jugada antes de salir del arco, sin precipitarme.", "No dejarme llevar por la presión del grupo cuando algo no está bien.", "Analizar la intención detrás de lo que me ofrecen antes de aceptar."], "hechos": [false, false, false, false, false, false, false], "plan": ["Leer un libro de desarrollo profesional o de toma de decisiones cada semestre.", "Antes de cada proyecto, escribir el análisis de requerimientos antes de programar.", "Evaluar con pros y contras cualquier oferta de trabajo o de equipo antes de aceptarla.", "Hacer una revisión de fin de año: qué decisiones funcionaron y cuáles no."], "planHecho": [false, false, false, false]}, "v7": {"compromisos": ["Controlar mis reacciones con el árbitro y los rivales, aun en partidos tensos.", "Esperar antes de responder un mensaje que me molestó en el grupo del proyecto.", "Limitar el tiempo en redes sociales y videojuegos en semana de entregas.", "Respetar mis horas de descanso para rendir en clases, trabajo y cancha.", "Arreglar pronto un conflicto con un compañero en vez de dejarlo crecer.", "Cuidar lo que digo de otros cuando no están presentes.", "Responder con calma, aunque me presionen."], "hechos": [false, false, false, false, false, false, false], "plan": ["Establecer un horario fijo de sueño y cumplirlo al menos cinco días por semana.", "Pasar un torneo completo sin tarjetas por reclamos o conducta.", "Limitar el tiempo diario en redes sociales con un control en el teléfono.", "Mantener el equilibrio entre estudio, trabajo y fútbol sin descuidar ninguno."], "planHecho": [false, false, false, false]}};
+  var CLAVE = "votos-exito-marcas";
+
+  /* ---------- Utilidades DOM ---------- */
+  function el(tag, attrs, html){
+    var e = document.createElement(tag);
+    if (attrs) for (var k in attrs){ if (k === "class") e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }
+    if (html != null) e.innerHTML = html;
+    return e;
+  }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  var CHECK = '<svg viewBox="0 0 24 24"><path d="M4 13 L10 19 L20 5" fill="none" stroke="#2f4a14" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function pergamino(contenido){
+    return '<section class="scroll"><div class="roll"></div><div class="paper">' + contenido + '</div><div class="roll"></div></section>';
+  }
+
+  /* ---------- Sellos ---------- */
+  var sellos = document.getElementById("sellos");
+  sellos.appendChild(el("a", {href:"#inicio", class:"inicio", "data-v":"inicio"}, "Inicio"));
+  VOTOS.forEach(function(v, i){
+    sellos.appendChild(el("a", {href:"#voto-" + v.n, "data-v":"voto-" + v.n, title:v.pilar.replace("El pilar de la ","").replace("El pilar del ","")}, ROMANOS[i]));
+  });
+
+  /* ---------- Vista de inicio ---------- */
+  var vistas = document.getElementById("vistas");
+  var filas = VOTOS.map(function(v, i){
+    return '<tr><td class="num">' + ROMANOS[i] + '</td>' +
+      '<td><a href="#voto-' + v.n + '">' + esc(v.virtud) + '</a></td>' +
+      '<td><div class="barra"><div class="tubo"><span id="pc' + v.n + '"></span></div><em id="tc' + v.n + '">0/7</em></div></td>' +
+      '<td class="col-lect"><div class="barra"><div class="tubo"><span id="pl' + v.n + '"></span></div><em id="tl' + v.n + '">0/4</em></div></td></tr>';
+  }).join("");
+  var inicio = el("section", {class:"vista", id:"v-inicio"});
+  inicio.innerHTML = '<div class="intro">' + pergamino(
+    '<div class="semana">Siete semanas</div>' +
+    '<h2 class="voto">Mi bitácora de votos</h2>' +
+    '<div class="orn">✦ ❦ ✦</div>' +
+    '<p class="capitular">Cada semana el libro propone un voto: una promesa breve que se pronuncia como oración, acompañada de un pilar tomado de la sabiduría de Proverbios. La actividad consiste en escribir siete compromisos concretos para vivir cada voto y convertirlo en un plan de objetivos para el próximo año.</p>' +
+    '<p>En esta bitácora cada voto ocupa dos pergaminos, igual que en el libro: a la izquierda el juramento y su sentido; a la derecha el pilar, los siete compromisos y mi plan para 2027, con un objetivo por trimestre. Toca los sellos de arriba para recorrerlos.</p>' +
+    '<h3>Avance de la actividad</h3>' +
+    '<table class="tabla-prog"><thead><tr><th></th><th>Pilar</th><th>Compromisos cumplidos</th><th class="col-lect">Objetivos 2027</th></tr></thead><tbody>' + filas + '</tbody></table>' +
+    '<div class="totales"><div><b id="totC">0</b><span>de 49 compromisos</span></div><div><b id="totL">0</b><span>de 28 objetivos 2027</span></div></div>' +
+    '<p class="nota">Fuente: <em>Los 7 Votos del Éxito</em>, págs. 79–92. Los textos de cada voto y pilar están resumidos con mis palabras; la oración completa está en el libro.</p>' +
+    '<div class="estado" id="estado-inicio"></div>'
+  ) + '<div class="pasos"><a class="oculto" href="#inicio">‹</a><a href="#voto-1">Primer voto ›</a></div></div>';
+  vistas.appendChild(inicio);
+
+  /* ---------- Vistas de cada voto ---------- */
+  VOTOS.forEach(function(v, i){
+    var izq = pergamino(
+      '<div class="semana">Semana ' + v.n + '</div>' +
+      '<h2 class="voto">' + esc(v.ordinal) + '</h2>' +
+      '<div class="juramento">' + esc(v.juramento) + '</div>' +
+      '<div class="orn">✦ ❦ ✦</div>' +
+      '<div class="duo"><div class="ficha"><small>Virtud que cultivo</small><b>' + esc(v.virtud) + '</b></div>' +
+      '<div class="ficha"><small>Lo que resisto</small><b>' + esc(v.resiste) + '</b></div></div>' +
+      '<h3>La esencia del voto</h3><p class="capitular">' + esc(v.esencia) + '</p>' +
+      '<h3>En mi vida profesional</h3><p>' + esc(v.profesion) + '</p>' +
+      '<div class="pag">Libro, págs. ' + v.pags + '</div>'
+    );
+    var lineas = "";
+    for (var k = 0; k < 7; k++){
+      lineas += '<div class="linea" id="ln' + v.n + '-' + k + '">' +
+        '<button type="button" class="caja" aria-pressed="false" aria-label="Marcar compromiso ' + (k+1) + ' como cumplido" data-v="' + v.n + '" data-k="' + k + '">' + CHECK + '</button>' +
+        '<textarea class="comp" rows="1" maxlength="280" placeholder="Compromiso ' + (k+1) + '…" aria-label="Compromiso ' + (k+1) + '" data-v="' + v.n + '" data-k="' + k + '"></textarea></div>';
+    }
+    var metas = TRIM.map(function(t, q){
+      return '<div class="meta" id="mt' + v.n + '-' + q + '"><div class="trim"><b>' + t[0] + '</b><small>' + t[1] + '</small></div>' +
+        '<textarea class="obj" rows="1" maxlength="280" placeholder="Objetivo del trimestre…" aria-label="Objetivo ' + t[0] + ' de 2027" data-v="' + v.n + '" data-q="' + q + '"></textarea>' +
+        '<button type="button" class="caja" aria-pressed="false" aria-label="Marcar objetivo ' + t[0] + ' como cumplido" data-v="' + v.n + '" data-q="' + q + '">' + CHECK + '</button></div>';
+    }).join("");
+    var der = pergamino(
+      '<div class="placa-marco"><div class="placa"><i class="tornillo t1"></i><i class="tornillo t2"></i><i class="tornillo t3"></i><i class="tornillo t4"></i>' +
+        '<div class="nombre">' + esc(v.pilar) + '</div>' +
+        '<div class="texto">' + esc(v.pilarTexto) + '</div>' +
+        '<div class="ref">' + esc(v.ref) + '</div></div></div>' +
+      '<h3 style="text-align:center;margin-top:26px">Mis siete compromisos</h3>' +
+      '<div class="lineas">' + lineas + '</div>' +
+      '<h3 style="text-align:center;margin-top:28px">Mi plan para el próximo año</h3>' +
+      '<div class="plan"><div class="anio"><span>Objetivos por trimestre</span><b>2027</b></div>' + metas + '</div>' +
+      '<div class="estado" id="estado-' + v.n + '"></div>'
+    );
+    var prev = i === 0 ? '<a href="#inicio">‹ Inicio</a>' : '<a href="#voto-' + (v.n-1) + '">‹ ' + esc(VOTOS[i-1].ordinal) + '</a>';
+    var next = i === 6 ? '<a href="#inicio">Volver al inicio ›</a>' : '<a href="#voto-' + (v.n+1) + '">' + esc(VOTOS[i+1].ordinal) + ' ›</a>';
+    var sec = el("section", {class:"vista", id:"v-voto-" + v.n});
+    sec.innerHTML = '<div class="par">' + izq + der + '</div><div class="pasos">' + prev + next + '</div>';
+    vistas.appendChild(sec);
+  });
+
+  /* ---------- Navegación por hash ---------- */
+  function mostrar(){
+    var h = (location.hash || "").replace("#","");
+    if (!/^(inicio|voto-[1-7])$/.test(h)) h = "inicio";
+    document.querySelectorAll(".vista").forEach(function(s){ s.classList.toggle("activa", s.id === "v-" + h); });
+    sellos.querySelectorAll("a").forEach(function(a){ a.classList.toggle("activo", a.getAttribute("data-v") === h); });
+    autoAjustarTodo();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", mostrar);
+
+  /* ---------- Pintar estado ---------- */
+  function autoAjustar(t){ t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; }
+  function autoAjustarTodo(){ document.querySelectorAll(".vista.activa textarea.comp, .vista.activa textarea.obj").forEach(autoAjustar); }
+
+  function pintarVoto(n){
+    var s = estado[n];
+    for (var k = 0; k < 7; k++){
+      var ta = document.querySelector('textarea.comp[data-v="' + n + '"][data-k="' + k + '"]');
+      if (ta && document.activeElement !== ta){ ta.value = s.compromisos[k]; autoAjustar(ta); }
+      var cb = document.querySelector('.caja[data-v="' + n + '"][data-k="' + k + '"]');
+      if (cb) cb.setAttribute("aria-pressed", s.hechos[k] ? "true" : "false");
+      var ln = document.getElementById("ln" + n + "-" + k);
+      if (ln) ln.classList.toggle("hecho", !!s.hechos[k]);
+    }
+    for (var q = 0; q < 4; q++){
+      var to = document.querySelector('textarea.obj[data-v="' + n + '"][data-q="' + q + '"]');
+      if (to && document.activeElement !== to){ to.value = s.plan[q]; autoAjustar(to); }
+      var bq = document.querySelector('.caja[data-v="' + n + '"][data-q="' + q + '"]');
+      if (bq) bq.setAttribute("aria-pressed", s.planHecho[q] ? "true" : "false");
+      var mt = document.getElementById("mt" + n + "-" + q);
+      if (mt) mt.classList.toggle("hecho", !!s.planHecho[q]);
+    }
+  }
+  function pintarAvance(){
+    var tc = 0, tl = 0;
+    VOTOS.forEach(function(v){
+      var s = estado[v.n];
+      var c = s.hechos.filter(Boolean).length, l = s.planHecho.filter(Boolean).length;
+      tc += c; tl += l;
+      document.getElementById("pc" + v.n).style.width = (c/7*100) + "%";
+      document.getElementById("pl" + v.n).style.width = (l/4*100) + "%";
+      document.getElementById("tc" + v.n).textContent = c + "/7";
+      document.getElementById("tl" + v.n).textContent = l + "/4";
+    });
+    document.getElementById("totC").textContent = tc;
+    document.getElementById("totL").textContent = tl;
+  }
+  function avisar(txt){
+    document.querySelectorAll(".estado").forEach(function(e){ e.textContent = txt; });
+  }
+
+  function aplicarSoloLectura(){
+    soloLectura = true;
+    document.querySelectorAll("textarea.comp, textarea.obj").forEach(function(t){ t.readOnly = true; t.placeholder = ""; });
+    document.querySelectorAll(".caja").forEach(function(b){ b.disabled = true; });
+  }
+
+  /* ---------- Guardado (una escritura a la vez por voto) ---------- */
+  var temporizador = {}, ocupado = {}, otraVez = {};
+  function programar(n, ms){
+    if (soloLectura) return;
+    clearTimeout(temporizador[n]);
+    temporizador[n] = setTimeout(function(){ guardar(n); }, ms);
+  }
+  function guardar(n){
+    if (!db || soloLectura) return;
+    var cuerpo = JSON.stringify(estado[n]);
+    if (cuerpo === guardado[n]) return;
+    if (ocupado[n]){ otraVez[n] = true; return; }
+    ocupado[n] = true;
+    avisar("Guardando…");
+    db.doc("votos/v" + n).set(JSON.parse(cuerpo)).then(function(){
+      guardado[n] = cuerpo;
+      avisar("Guardado ✓");
+    }).catch(function(e){
+      var code = e && e.code;
+      if (code === "invalid_argument"){ aplicarSoloLectura(); avisar("Vista de solo lectura."); }
+      else avisar("No se pudo guardar. Intenta de nuevo en un momento.");
+    }).then(function(){
+      ocupado[n] = false;
+      if (otraVez[n]){ otraVez[n] = false; guardar(n); }
+    });
+  }
+
+  /* ---------- Eventos ---------- */
+  vistas.addEventListener("input", function(ev){
+    var t = ev.target;
+    if (!t.matches || !t.matches("textarea.comp, textarea.obj")) return;
+    var n = +t.getAttribute("data-v"), limpio = t.value.replace(/\n/g, " ").slice(0, 280);
+    if (t.classList.contains("obj")) estado[n].plan[+t.getAttribute("data-q")] = limpio;
+    else estado[n].compromisos[+t.getAttribute("data-k")] = limpio;
+    if (t.value.indexOf("\n") !== -1) t.value = limpio;
+    autoAjustar(t);
+    programar(n, 900);
+  });
+  vistas.addEventListener("focusout", function(ev){
+    var t = ev.target;
+    if (t.matches && t.matches("textarea.comp, textarea.obj")) programar(+t.getAttribute("data-v"), 0);
+  });
+  vistas.addEventListener("click", function(ev){
+    var b = ev.target.closest ? ev.target.closest("button") : null;
+    if (!b || b.disabled || soloLectura) return;
+    var n = +b.getAttribute("data-v");
+    if (!n) return;
+    if (b.hasAttribute("data-q")){
+      var q = +b.getAttribute("data-q");
+      estado[n].planHecho[q] = !estado[n].planHecho[q];
+    } else if (b.hasAttribute("data-k")){
+      var k = +b.getAttribute("data-k");
+      estado[n].hechos[k] = !estado[n].hechos[k];
+    } else return;
+    pintarVoto(n); pintarAvance();
+    guardarLocal();
+  });
+  window.addEventListener("resize", autoAjustarTodo);
+
+  /* ---------- Datos guardados ---------- */
+  function limpiar(d){
+    var s = vacio();
+    if (!d || typeof d !== "object") return s;
+    for (var k = 0; k < 7; k++){
+      if (Array.isArray(d.compromisos) && typeof d.compromisos[k] === "string") s.compromisos[k] = d.compromisos[k].slice(0, 280);
+      if (Array.isArray(d.hechos)) s.hechos[k] = d.hechos[k] === true;
+    }
+    for (var q = 0; q < 4; q++){
+      if (Array.isArray(d.plan) && typeof d.plan[q] === "string") s.plan[q] = d.plan[q].slice(0, 280);
+      if (Array.isArray(d.planHecho)) s.planHecho[q] = d.planHecho[q] === true;
+    }
+    return s;
+  }
+
+  function guardarLocal(){
+    try{
+      var m = {};
+      VOTOS.forEach(function(v){ m[v.n] = {hechos:estado[v.n].hechos, planHecho:estado[v.n].planHecho}; });
+      localStorage.setItem(CLAVE, JSON.stringify(m));
+    }catch(e){}
+  }
+  function conectar(){
+    var marcas = {};
+    try{ marcas = JSON.parse(localStorage.getItem(CLAVE) || "{}") || {}; }catch(e){ marcas = {}; }
+    VOTOS.forEach(function(v){
+      var s = limpiar(DATOS["v" + v.n]);
+      var m = marcas[v.n];
+      if (m){
+        if (Array.isArray(m.hechos)) for (var k = 0; k < 7; k++) s.hechos[k] = m.hechos[k] === true;
+        if (Array.isArray(m.planHecho)) for (var q = 0; q < 4; q++) s.planHecho[q] = m.planHecho[q] === true;
+      }
+      estado[v.n] = s;
+    });
+    document.querySelectorAll("textarea.comp, textarea.obj").forEach(function(t){ t.readOnly = true; });
+    VOTOS.forEach(function(v){ pintarVoto(v.n); });
+    pintarAvance();
+  }
+
+  VOTOS.forEach(function(v){ pintarVoto(v.n); });
+  pintarAvance();
+  mostrar();
+  conectar();
+})();
+</script>
+</body>
+</html>
